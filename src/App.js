@@ -34,7 +34,7 @@ function App() {
 
       switch (differentBooksArr.length) {
         case 1:
-          totalPrice += 1 * 50
+          totalPrice += 50
           break;
         case 2:
           totalPrice += 2 * 50 * 0.95
