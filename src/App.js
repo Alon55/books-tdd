@@ -23,7 +23,8 @@ function App() {
   const calculateBooksPrice = (bookArr) => {
     let totalPrice = 0
 
-    if (bookArr.length === 2) { totalPrice += 2 * 50 * 0.95 }
+    if (bookArr.length === 1) { totalPrice += 50 }
+    if (bookArr.length === 2 && bookArr[0] !== bookArr[1]) { totalPrice += 2 * 50 * 0.95 }
 
     setCleanCode(0)
     setCleanCoder(0)
