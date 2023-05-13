@@ -50,4 +50,14 @@ describe("Book price calculator - Tests", () => {
     expect(totalPrice.innerHTML).toBe('The total price is: 187.5');
   });
 
+
+  test("4 books, 3 different", async () => {
+    render(<App />)
+
+    addBooksAndCalcPrice([{ title: 'Clean Code', quantity: 2 }, { title: 'The Clean Coder', quantity: 1 }, { title: 'Clean Architecture', quantity: 1 }])
+
+    const totalPrice = screen.getByRole('heading', { level: 3 });
+    expect(totalPrice.innerHTML).toBe('The total price is: 185');
+  });
+
 });
