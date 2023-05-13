@@ -23,9 +23,24 @@ function App() {
   const calculateBooksPrice = (bookArr) => {
     let totalPrice = 0
 
-    if (bookArr.length === 1) { totalPrice += 50 }
-    if (bookArr.length === 2 && bookArr[0] !== bookArr[1]) { totalPrice += 2 * 50 * 0.95 }
-    if (bookArr.length === 3 && bookArr[0] !== bookArr[1] && bookArr[0] !== bookArr[2] && bookArr[1] !== bookArr[2]) { totalPrice += 3 * 50 * 0.9 }
+    while (!bookArr.every(book => !book)) {
+      const differentBooksArr = []
+      bookArr.forEach((book, i) => {
+        if (!differentBooksArr.includes(book) && book) {
+          differentBooksArr.push(book)
+          bookArr[i] = false
+        }
+      });
+
+      switch (differentBooksArr.length) {
+        case 2:
+          totalPrice += 2 * 50 * 0.95
+          break;
+        case 3:
+          totalPrice += 3 * 50 * 0.9
+          break;
+      }
+    }
 
     setCleanCode(0)
     setCleanCoder(0)
