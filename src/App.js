@@ -39,6 +39,9 @@ function App() {
         case 3:
           totalPrice += 3 * 50 * 0.9
           break;
+        case 4:
+          totalPrice += 4 * 50 * 0.8
+          break;
       }
     }
 
